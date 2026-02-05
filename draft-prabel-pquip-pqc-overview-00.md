@@ -35,10 +35,10 @@ author:
     fullname: Guilin Wang
     organization: Huawei
     email: wang.guilin@huawei.com
- - ins: Y. Shah
-   fullname: Yug Shah
-   organization: Qorsa
-   email: yugscontact@gmail.com
+ -  ins: Y. Shah
+    fullname: Yug Shah
+    organization: Qorsa
+    email: yug.shah@qorsa.com
 
 informative:
  I-D.draft-ietf-pquip-pqt-hybrid-terminology-04:
@@ -134,7 +134,7 @@ Several standardization bodies, including NIST, ISO, and others, have been evalu
 
 This document provides a consolidated overview of widely studied post-quantum cryptographic algorithms, based on publicly available information. It aggregates parameter sizes, security classifications, and underlying hardness assumptions from existing specifications and standardization efforts. The information presented here is purely informational and does not constitute recommendations or requirements for algorithm selection, deployment strategies, or migration planning.
 
-The document covers both KEM schemes (ML-KEM, FrodoKEM, Classic McEliece, HQC, and NTRU) and signature schemes (ML-DSA, FN-DSA, SLH-DSA, LMS, and XMSS/XMSS^MT), providing a unified reference to assist stakeholders in navigating the landscape of post-quantum cryptographic options.
+The document covers both KEM schemes (ML-KEM, FrodoKEM, Classic McEliece, HQC, and NTRU) and signature schemes (ML-DSA, FN-DSA, SLH-DSA, LMS, and XMSS/XMSS^MT), providing a unified reference to assist stakeholders in navigating the landscape of post-quantum cryptographic algorithms.
 
 
 # Conventions and Definitions
@@ -143,18 +143,23 @@ The document covers both KEM schemes (ML-KEM, FrodoKEM, Classic McEliece, HQC, a
 
 This section recalls terminology relevant to post-quantum cryptographic algorithms and defines additional terms used throughout this document.
 
+*CRQC*: A Cryptographically Relevant Quantum Computer is a quantum 
+   computer powerful enough to break traditional asymmetric 
+   cryptographic algorithms.
+
+
 *Traditional Asymmetric Cryptographic Algorithm*:  An asymmetric
    cryptographic algorithm based on integer factorisation, finite
    field discrete logarithms, elliptic curve discrete logarithms, or
    related mathematical problems. They can also be called classical or
    conventional algorithms.
 
-*Post-Quantum Asymmetric Cryptographic Algorithm*:  An asymmetric
-cryptographic algorithm that is intended to be secure against
-attacks using quantum computers as well as classical computers.
+*Post-Quantum Asymmetric Cryptographic Algorithm*:  An asymmetric 
+cryptographic algorithm whose security is intended to hold against 
+attacks using either classical or quantum computational resources.
 They can also be called quantum-resistant or quantum-safe algorithms.
 
-As with all cryptography, it always remains the case that attacks, either quantum or classical, may be found against post-quantum algorithms.  Therefore it should not be assumed that just because an algorithm is designed to provide post-quantum security it will not be compromised.  Should an attack be found against a post-quantum algorithm, it is commonly still referred to as a post-quantum algorithm as they were designed to protect against an adversary with access to a CRQC and the labels are referring to the designed or desired properties.
+As with all cryptography, it always remains the case that attacks, either quantum or classical, may be found against post-quantum algorithms. Therefore it should not be assumed that just because an algorithm is designed to provide post-quantum security it will not be compromised. Post-Quantum Algorithms are named for their design objective: security against an adversary with access to a CRQC, and this classification will remain should an attack be found against it.
 
 *IND-CCA2*: Indistinguishability under Adaptive Chosen-Ciphertext Attack. It is the standard security notion for KEM schemes.
 
@@ -164,7 +169,7 @@ As with all cryptography, it always remains the case that attacks, either quantu
 
 # Parameter Sizes
 
-This section is divided into two different subsections, one focused on Key Encapsulation Mechanism, and the other on signature schemes.
+This section is divided into two subsections, one focused on Key Encapsulation Mechanism, and the other on Signature schemes.
 
 The "claimed security level" in each table refers to the NIST Post-Quantum Cryptography Evaluation Criteria. We summarize this classification in {{tab-security-level}} below. Additional details are available at {{ IR.8547 }}.
 
@@ -179,7 +184,7 @@ The "claimed security level" in each table refers to the NIST Post-Quantum Crypt
 
 ## Key Encapsulation Mechanism (KEM) Schemes
 
-A Key Encapsulation Mechanism (KEM) is a cryptographic primitive that can be used as a building block within a broader key establishment protocol. Therefore, while KEMs are often employed to achieve the same end goal as a traditional key exchange, they do not, by themselves, define the interactive procedures, message flows, or authentication steps that a full key exchange protocol requires.
+A Key Encapsulation Mechanism (KEM) is a cryptographic primitive that can be used as a building block within a broader key establishment protocol. While KEMs are often employed to achieve the same end goal as a traditional key exchange, they do not, by themselves, define the interactive procedures, message flows, or authentication steps that a full key exchange protocol requires.
 
 This distinction is particularly relevant for implementers and developers to avoid confusion:
 
@@ -188,7 +193,7 @@ This distinction is particularly relevant for implementers and developers to avo
 
 ### ML-KEM
 
-ML-KEM, formerly known as CRYSTALS-Kyber, is a structured lattice-based KEM, the first PQC KEM standardized by NIST. The security of ML-KEM is based on the computational hardness of the Module Learning with Errors problem.
+ML-KEM is a structured lattice-based KEM and the first post-quantum KEM standardized by NIST. It is derived from the CRYSTALS-Kyber submission to NIST PQC Standardization Project. The security of ML-KEM is based on the computational hardness of the Module Learning with Errors problem.
 
 NIST recommends Security Level 3 by default, and European security agencies recommend a minimum of the same security level.
 
@@ -202,12 +207,29 @@ The NIST specification of ML-KEM is available at {{MLKEM.SPEC}}.
 | ML-KEM-1024 | 1568 |2168 | 1568 | 32 | 5 |
 {: #tab-mlkem title="ML-KEM Parameter Sizes (in bytes)"}
 
-{{MLKEM.SPEC}} also allows to use a 64-bytes seed to represent the private key.
+{{MLKEM.SPEC}} also allows the use of a 64-byte seed to represent the private key.
+
+
+### HQC
+
+HQC is a code-based KEM relying on the decisional Quasi-Cyclic Syndrome Decoding (QCSD) hardness assumption.
+
+It has been selected for standardization by NIST.
+
+The HQC specification is available at {{HQC.SPEC}}.
+
+
+| Scheme | Public Key | Private Key | Ciphertext | Shared Secret | Claimed Security Level |
+| ----------- | ----------- |  ----------- | ----------- | ----------- | ----------- |
+| HQC-128 | 2249 | 2305 | 4433 | 64 | 1 |
+| HQC-192 | 4522 | 4586 | 8978 | 64 | 3 |
+| HQC-256 | 7245 | 7317 | 14421 | 64 | 5 |
+{: #tab-hqc title="HQC Parameter Sizes (in bytes)"}
 
 
 ### FrodoKEM
 
-FrodoKEM is a lattice-based KEM whose security is based on the plain Learning with Errors (LWE) hardness assumption, unlike ML-KEM which is based on structured lattices.
+FrodoKEM is a lattice-based KEM whose security is based on the Learning with Errors (LWE) hardness assumption. Unlike the structured lattices of ML-KEM, FrodoKEM uses unstructed lattices.
 
 ISO is reviewing it for possible standardization, and it is mentioned in guidance published by European security agencies.
 
@@ -225,11 +247,29 @@ The FrodoKEM specification is available at {{FRODOKEM.SPEC}}. It includes varian
 {: #tab-frodokem title="FrodoKEM Parameter Sizes (in bytes)"}
 
 
+### NTRU
+
+NTRU is a structured lattice-based KEM.
+
+It is considered for standardization by ISO.
+
+The NTRU specification is available at {{NTRU.SPEC}}.
+
+| Scheme | Public Key | Private Key | Ciphertext | Shared Secret | Claimed Security Level |
+| ----------- | ----------- |  ----------- | ----------- | ----------- | ----------- |
+| ntruhps2048509 | 699 | 935 | 699 | 32 | 1 |
+| ntruhps2048677 | 930 | 1235 | 930 | 32 | 3 |
+| ntruhps4096821 | 1230 | 1592 | 1230 | 32 | 5 |
+| ntruhrss701 | 1138 | 1452 | 1138 | 32 | 3 |
+| ntruhrss1373 | 2401 | 2983 | 2401 | 32 | 5 |
+{: #tab-ntru title="NTRU Parameter Sizes (in bytes)"}
+
+
 ### Classic McEliece
 
 Classic McEliece is a code-based KEM, based on the original McEliece cryptosystem from 1978.
 
-Each security level includes an 'f' variant that is more complex internally than the 'non-f' variant but enables faster key generation.
+Each security level includes a 'f' variant that enables faster key generation, but is internally more complex.
 
 Classic McEliece has been the subject of long-term public cryptanalysis, and is considered in ongoing standardization efforts, such as ISO.
 
@@ -250,39 +290,6 @@ The Classic McEliece specification is available at {{CLASSICMCELIECE.SPEC}}.
 | Classic-McEliece-8192128f  | 1357824 | 14120 | 208 | 32 | 5 |
 {: #tab-cme title="Classic-McEliece Parameter Sizes (in bytes)"}
 
-### HQC
-
-HQC is a code-based KEM relying on the decisional Quasi-Cyclic Syndrome Decoding (QCSD) hardness assumption.
-
-It has been selected for standardization by NIST.
-
-The HQC specification is available at {{HQC.SPEC}}.
-
-
-| Scheme | Public Key | Private Key | Ciphertext | Shared Secret | Claimed Security Level |
-| ----------- | ----------- |  ----------- | ----------- | ----------- | ----------- |
-| HQC-128 | 2249 | 2305 | 4433 | 64 | 1 |
-| HQC-192 | 4522 | 4586 | 8978 | 64 | 3 |
-| HQC-256 | 7245 | 7317 | 14421 | 64 | 5 |
-{: #tab-hqc title="HQC Parameter Sizes (in bytes)"}
-
-### NTRU
-
-NTRU is a structured lattice-based KEM.
-
-It is considered for standardization by ISO.
-
-The NTRU specification is available at {{NTRU.SPEC}}.
-
-| Scheme | Public Key | Private Key | Ciphertext | Shared Secret | Claimed Security Level |
-| ----------- | ----------- |  ----------- | ----------- | ----------- | ----------- |
-| ntruhps2048509 | 699 | 935 | 699 | 32 | 1 |
-| ntruhps2048677 | 930 | 1235 | 930 | 32 | 3 |
-| ntruhps4096821 | 1230 | 1592 | 1230 | 32 | 5 |
-| ntruhrss701 | 1138 | 1452 | 1138 | 32 | 3 |
-| ntruhrss1373 | 2401 | 2983 | 2401 | 32 | 5 |
-{: #tab-ntru title="NTRU Parameter Sizes (in bytes)"}
-
 
 ## Signature Schemes
 
@@ -293,7 +300,7 @@ In the context of post-quantum cryptography, signature schemes are designed to r
 
 ### ML-DSA
 
-ML-DSA, formerly known as CRYSTALS-Dilithium, is a structured lattice-based signature scheme, now standardized by NIST. The security of ML-DSA is based on the computational hardness of the Module Learning with Errors problem as well as the SelfTargetMSIS problem, a variant of the Module Short Integer Solution problem.
+ML-DSA is a structured lattice-based signature scheme, now standardized by NIST. It is derived from the CRYSTALS-Dilithium submission to NIST PQC Standardization Project. The security of ML-DSA is based on the computational hardness of the Module Learning with Errors problem as well as the SelfTargetMSIS problem, a variant of the Module Short Integer Solution problem.
 
 European security agencies recommend at least Security Level 3.
 
@@ -314,7 +321,7 @@ The NIST specification of ML-DSA is available at {{MLDSA.SPEC}}.
 
 FN-DSA, formerly known as Falcon, is a lattice-based signature scheme that was selected by NIST for standardization.
 
-FN-DSA relies on floating-point arithmetic as part of its design, and its specification is available at {{FNDSA.SPEC}}.
+FN-DSA relies on floating-point arithmetic as part of its design, and the specification is available at {{FNDSA.SPEC}}.
 
 
 | Scheme | Public Key | Private Key | Signature | Claimed Security Level |
@@ -328,7 +335,7 @@ FN-DSA relies on floating-point arithmetic as part of its design, and its specif
 
 ### SLH-DSA
 
-SLH-DSA, formerly known as SPHINCS+, is a stateless hash-based signature scheme now standardized by NIST.
+SLH-DSA is a stateless hash-based signature scheme standardized by NIST. It is derived from the SPHINCS+ submission to NIST PQC Standardization Project.
 
 Each security level offers two possible hash function families (SHA-2 or SHAKE), and for each family, two specific variants: the 's' (small signature) variant and the 'f' (fast generation) variant. Each parameter set defines choices affecting signature size and performance characteristics.
 
