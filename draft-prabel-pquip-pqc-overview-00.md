@@ -24,21 +24,21 @@ venue:
   type: Working Group
   mail: pqc@ietf.org
   arch: https://mailarchive.ietf.org/arch/browse/pqc/
-  github: USER/REPO
+  github: lucasprabel/draft-pquip-pqc-overview-00
 
 author:
  -  ins: L. Prabel
     fullname: Lucas Prabel
     organization: Huawei
     email: lucas.prabel@huawei.com
- -  ins: G. Wang
-    fullname: Guilin Wang
-    organization: Huawei
-    email: wang.guilin@huawei.com
  -  ins: Y. Shah
     fullname: Yug Shah
     organization: Qorsa
     email: yug.shah@qorsa.com
+ -  ins: G. Wang
+    fullname: Guilin Wang
+    organization: Huawei
+    email: wang.guilin@huawei.com
 
 informative:
  I-D.draft-ietf-pquip-pqt-hybrid-terminology-04:
