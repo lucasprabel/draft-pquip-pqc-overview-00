@@ -134,7 +134,7 @@ Several standardization bodies, including NIST, ISO, and others, have been evalu
 
 This document provides a consolidated overview of widely studied post-quantum cryptographic algorithms, based on publicly available information. It aggregates parameter sizes, security classifications, and underlying hardness assumptions from existing specifications and standardization efforts. The information presented here is purely informational and does not constitute recommendations or requirements for algorithm selection, deployment strategies, or migration planning.
 
-The document covers both KEM schemes (ML-KEM, FrodoKEM, Classic McEliece, HQC, and NTRU) and signature schemes (ML-DSA, FN-DSA, SLH-DSA, LMS, and XMSS/XMSS^MT), providing a unified reference to assist stakeholders in navigating the landscape of post-quantum cryptographic algorithms.
+The document covers both KEM schemes (ML-KEM, HQC, FrodoKEM, NTRU, Classic McEliece) and signature schemes (ML-DSA, FN-DSA, SLH-DSA, LMS, XMSS/XMSS^MT), providing a unified reference to assist stakeholders in navigating the landscape of post-quantum cryptographic algorithms.
 
 
 # Conventions and Definitions
