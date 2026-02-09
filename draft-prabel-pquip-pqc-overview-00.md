@@ -471,7 +471,7 @@ The NIST specification of XMSS is available at {{XMSS.SPEC}}.
 
 | Scheme | Public Key | Private Key | Signature | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |
-| XMSS-SHA2_10_256| 64 | 1793 | 2500 | 5 |
+| XMSS-SHA2_10_256| 64 | 1373 | 2500 | 5 |
 | XMSS-SHA2_16_256 | 64 | 2093 | 2692 | 5 |
 | XMSS-SHA2_20_256 | 64 | 2573 | 2820 | 5 |
 | XMSSMT-SHA2_20/2_256 | 64 | 5998 | 4963 | 5 |
