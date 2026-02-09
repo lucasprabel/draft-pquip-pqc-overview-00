@@ -348,6 +348,8 @@ FN-DSA, formerly known as Falcon, is a lattice-based signature scheme that was s
 
 FN-DSA relies on floating-point arithmetic as part of its design, and the specification is available at {{FNDSA.SPEC}}.
 
+FN-DSA signatures can be generated in two formats: compressed (Falcon-512 and Falcon-1024) and padded (Falcon-padded-512 and Falcon-padded-1024). The compressed version results in variable-length signatures, shorter on average, while the padded version ensures a constant signature size. In {{tab-fndsa}}, the indicated variable-length signature size is a maximum.
+
 
 | Scheme | Public Key | Private Key | Signature | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |
@@ -491,7 +493,7 @@ The NIST specification of XMSS is available at {{XMSS.SPEC}}.
 | XMSSMT-SHAKE256_40/2_256 | 64 | 9600 | 5605 | 5 |
 | XMSSMT-SHAKE256_40/4_256 | 64 | 15252 | 9893 | 5 |
 | XMSSMT-SHAKE256_40/8_256 | 64 | 24516 | 18469 | 5 |
-| XMSSMT-SHAKE256_60/3_256 | 64 | 24516 | 8392 | 5 |
+| XMSSMT-SHAKE256_60/3_256 | 64 | 16629 | 8392 | 5 |
 | XMSSMT-SHAKE256_60/6_256 | 64 | 24507 | 14824 | 5 |
 | XMSSMT-SHAKE256_60/12_256 | 64 | 38095 | 27688 | 5 |
 | XMSS-SHAKE256_10_192| 48 | 1053 | 1492 | 3 |
