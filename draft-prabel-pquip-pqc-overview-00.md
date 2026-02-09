@@ -418,16 +418,16 @@ The signatures' sizes for the LMS_SHA256/192_M24_H{5, 10, 15, 20, 25} signature 
 | LMOTS_SHA256_N24_W2  | 56 | 2448 | 2452 | x |
 | LMOTS_SHA256_N24_W4  | 56 | 1248 | 1251 | x |
 | LMOTS_SHA256_N24_W8  | 56 | 648 | 652 | x |
-| LMS_SHA256_M24_H5  | 56 | 1796 | [784, 1384, 2584, 4960] | 5 |
-| LMS_SHA256_M24_H10 | 56 | 57348 | [904, 1504, 2704, 5080] | 5 |
-| LMS_SHA256_M24_H15 | 56 | 1835012 | [1024, 1624, 2824, 5200] | 5 |
-| LMS_SHA256_M24_H20 | 56 | 58720260 | [1144, 1744, 2944, 5320] | 5 |
-| LMS_SHA256_M24_H25 | 56 | 1879048196 | [1264, 1864, 3064, 5440] | 5 |
+| LMS_SHA256_M24_H5  | 56 | 1796 | [784, 1384, 2584, 4960] | 3 |
+| LMS_SHA256_M24_H10 | 56 | 57348 | [904, 1504, 2704, 5080] | 3 |
+| LMS_SHA256_M24_H15 | 56 | 1835012 | [1024, 1624, 2824, 5200] | 3 |
+| LMS_SHA256_M24_H20 | 56 | 58720260 | [1144, 1744, 2944, 5320] | 3 |
+| LMS_SHA256_M24_H25 | 56 | 1879048196 | [1264, 1864, 3064, 5440] | 3 |
 {: #tab-lms-sha256/192 title="LMS with SHA256/192 Parameter Sizes (in bytes)"}
 
 #### LMS with SHAKE256/256
 
-The signatures' sizes for the LMS_SHA256_M32_H{5, 10, 15, 20, 25} signature scheme depend on the choice of the underlying LMOTS scheme and in particular on the value of the Winternitz parameter W. Therefore, the signatures' sizes of LMS_SHA256_M32_H{5, 10, 15, 20, 25} are given in a 4-element array where values correspond to the value of W = 8, 4, 2, 1 in that order.
+The signatures' sizes for the LMS_SHAKE_M32_H{5, 10, 15, 20, 25} signature scheme depend on the choice of the underlying LMOTS scheme and in particular on the value of the Winternitz parameter W. Therefore, the signatures' sizes of LMS_SHA256_M32_H{5, 10, 15, 20, 25} are given in a 4-element array where values correspond to the value of W = 8, 4, 2, 1 in that order.
 
 | Scheme | Public Key | Private Key | Signature | Claimed Security Level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |
@@ -444,7 +444,7 @@ The signatures' sizes for the LMS_SHA256_M32_H{5, 10, 15, 20, 25} signature sche
 
 #### LMS with SHAKE256/192
 
-The signatures' sizes for the LMS_SHA256/192_M24_H{5, 10, 15, 20, 25} signature scheme depend on the choice of the underlying LMOTS scheme and in particular on the value of the Winternitz parameter W. Therefore, the signatures' sizes of LMS_SHA256/192_M24_H{5, 10, 15, 20, 25} are given in a 4-element array where values correspond to the value of W = 8, 4, 2, 1 in that order.
+The signatures' sizes for the LMS_SHAKE_M24_H{5, 10, 15, 20, 25} signature scheme depend on the choice of the underlying LMOTS scheme and in particular on the value of the Winternitz parameter W. Therefore, the signatures' sizes of LMS_SHA256/192_M24_H{5, 10, 15, 20, 25} are given in a 4-element array where values correspond to the value of W = 8, 4, 2, 1 in that order.
 
 | Scheme | Public Key | Private Key | Signature | Claimed Security Level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |
@@ -452,11 +452,11 @@ The signatures' sizes for the LMS_SHA256/192_M24_H{5, 10, 15, 20, 25} signature 
 | LMOTS_SHAKE_N24_W2  | 56 | 2448 | 2452 | x |
 | LMOTS_SHAKE_N24_W4  | 56 | 1248 | 1252 | x |
 | LMOTS_SHAKE_N24_W8  | 56 | 648 | 652 | x |
-| LMS_SHAKE_M24_H5  | 56 | 1796 | [784, 1384, 2584, 4960] | 5 |
-| LMS_SHAKE_M24_H10 | 56 | 57348 | [904, 1504, 2704, 5080] | 5 |
-| LMS_SHAKE_M24_H15 | 56 | 1835012 | [1024, 1624, 2824, 5200] | 5 |
-| LMS_SHAKE_M24_H20 | 56 | 58720260 | [1144, 1744, 2944, 5320] | 5 |
-| LMS_SHAKE_M24_H25 | 56 | 1879048196 | [1264, 1864, 3064, 5440] | 5 |
+| LMS_SHAKE_M24_H5  | 56 | 1796 | [784, 1384, 2584, 4960] | 3 |
+| LMS_SHAKE_M24_H10 | 56 | 57348 | [904, 1504, 2704, 5080] | 3 |
+| LMS_SHAKE_M24_H15 | 56 | 1835012 | [1024, 1624, 2824, 5200] | 3 |
+| LMS_SHAKE_M24_H20 | 56 | 58720260 | [1144, 1744, 2944, 5320] | 3 |
+| LMS_SHAKE_M24_H25 | 56 | 1879048196 | [1264, 1864, 3064, 5440] | 3 |
 {: #tab-lms-shake256/192 title="LMS with SHAKE256/192 Parameter Sizes (in bytes)"}
 
 
@@ -481,9 +481,9 @@ The NIST specification of XMSS is available at {{XMSS.SPEC}}.
 | XMSSMT-SHA2_60/3_256 | 64 | 16629 | 8392 | 5 |
 | XMSSMT-SHA2_60/6_256 | 64 | 24507 | 14824 | 5 |
 | XMSSMT-SHA2_60/12_256 | 64 | 38095 | 27688 | 5 |
-| XMSS-SHA2_10_192| 48 | 1053 | 1492 | 5 |
-| XMSS-SHA2_16_192 | 48 | 1605 | 1636 | 5 |
-| XMSS-SHA2_20_192 | 48 | 1973 | 1732 | 5 |
+| XMSS-SHA2_10_192| 48 | 1053 | 1492 | 3 |
+| XMSS-SHA2_16_192 | 48 | 1605 | 1636 | 3 |
+| XMSS-SHA2_20_192 | 48 | 1973 | 1732 | 3 |
 | XMSS-SHAKE256_10_256| 64 | 1373 | 2500 | 5 |
 | XMSS-SHAKE256_16_256 | 64 | 2093 | 2692 | 5 |
 | XMSS-SHAKE256_20_256 | 64 | 2573 | 2820 | 5 |
@@ -495,13 +495,13 @@ The NIST specification of XMSS is available at {{XMSS.SPEC}}.
 | XMSSMT-SHAKE256_60/3_256 | 64 | 24516 | 8392 | 5 |
 | XMSSMT-SHAKE256_60/6_256 | 64 | 24507 | 14824 | 5 |
 | XMSSMT-SHAKE256_60/12_256 | 64 | 38095 | 27688 | 5 |
-| XMSS-SHAKE256_10_192| 48 | 1053 | 1492 | 5 |
-| XMSS-SHAKE256_16_192 | 48 | 1605 | 1636 | 5 |
-| XMSS-SHAKE256_20_192 | 48 | 1973 | 1732 | 5 |
+| XMSS-SHAKE256_10_192| 48 | 1053 | 1492 | 3 |
+| XMSS-SHAKE256_16_192 | 48 | 1605 | 1636 | 3 |
+| XMSS-SHAKE256_20_192 | 48 | 1973 | 1732 | 3 |
 {: #tab-xmss title="XMSS Parameter Sizes (in bytes)"}
 
 
-# Security Properties
+# Security Considerations
 
 ## Quantum-Vulnerable Asymmetric Cryptography
 
@@ -513,10 +513,10 @@ The EU PQC Workstream also published its roadmap for the transition to post-quan
 
 | Scheme | Hardness assumption | Disallowed (NIST) |
 | ----------- | ----------- | ----------- |
-| ECDSA | Discrete Logarithm | after 2035 |
-| EdDSA | Discrete Logarithm | after 2035 |
+| ECDSA | Elliptic Curve Discrete Logarithm | after 2035 |
+| EdDSA | Elliptic Curve Discrete Logarithm | after 2035 |
 | RSA | Factorisation | after 2035 |
-| (EC)DH | Decisional Diffie Hellman | after 2035 |
+| (EC)DH | (Elliptic Curve) Computational/Decisional DH | after 2035 |
 {: #tab-vulne title=" Quantum-Vulnerable Asymmetric Cryptographic Schemes"}
 
 ## Quantum-Safe Asymmetric Cryptography
@@ -525,7 +525,7 @@ The EU PQC Workstream also published its roadmap for the transition to post-quan
 
 | Scheme | SDO | Hardness assumption | Security Model | Comments |
 | ----------- | ----------- | ----------- | ----------- |
-| ML-KEM | NIST | Module LWE | IND-CCA-2 | xxx |
+| ML-KEM | NIST | Module LWE | IND-CCA2 | xxx |
 | FrodoKEM | ISO | Unstructured LWE | IND-CCA2 | xxx |
 | HQC | NIST | Decisional Quasi-Cyclic Syndrome Decoding Problem | IND-CCA2  | xxx |
 | Classic McEliece | ISO | Syndrome Decoding Problem, Goppa code recovery|IND-CCA2 | xxx |
