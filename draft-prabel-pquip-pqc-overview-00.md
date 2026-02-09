@@ -115,6 +115,32 @@ informative:
     author:
       org: "EU PQC Workstream"
     target: https://digital-strategy.ec.europa.eu/en/library/coordinated-implementation-roadmap-transition-post-quantum-cryptography
+ TNO.Handbook:
+    title: "The PQC Migration Handbook"
+    date: December 2024
+    author:
+      org: "AIVD, CWI, TNO"
+    target: https://publications.tno.nl/publication/34643386/fXcPVHsX/TNO-2024-pqc-en.pdf
+ ANSSI.PQCMigration:
+    title: "Avis de l'ANSSI sur la migration vers la cryptographie post-quantique (suivi 2023)"
+    date: December 2023
+    author:
+      org: "ANSSI"
+    target: https://messervices.cyber.gouv.fr/documents-guides/Avis%20de%20l%27ANSSI%20sur%20la%20migration%20vers%20la%20cryptographie.pdf
+ ANSSI.PQCViews:
+    title: "Cryptographic Mechanisms: Recommendations and Key Lengths"
+    date: March 2025
+    author:
+      org: "ANSSI"
+    target: https://na.eventscloud.com/file_uploads/b635298de1c10be6d3732863e8b1beca_Day2-1600-ANSSI.pdf
+ BSI.PQCMigration:
+    title: "Cryptographic Mechanisms: Recommendations and Key Lengths"
+    date: January 2025
+    author:
+      org: "ANSSI"
+    target: https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TG02102/BSI-TR-02102-1.pdf?__blob=publicationFile&v=10
+
+
 
 --- abstract
 
@@ -195,7 +221,7 @@ This distinction is particularly relevant for implementers and developers to avo
 
 ML-KEM is a structured lattice-based KEM and the first post-quantum KEM standardized by NIST. It is derived from the CRYSTALS-Kyber submission to NIST PQC Standardization Project. The security of ML-KEM is based on the computational hardness of the Module Learning with Errors problem.
 
-NIST recommends Security Level 3 by default, and European security agencies recommend a minimum of the same security level.
+NIST recommends Security Level 3 by default, and European security agencies recommend a minimum of the same Security Level.
 
 The NIST specification of ML-KEM is available at {{MLKEM.SPEC}}.
 
@@ -231,7 +257,7 @@ The HQC specification is available at {{HQC.SPEC}}.
 
 FrodoKEM is a lattice-based KEM whose security is based on the Learning with Errors (LWE) hardness assumption. Unlike the structured lattices of ML-KEM, FrodoKEM uses unstructed lattices.
 
-ISO is reviewing it for possible standardization, and it is mentioned in guidance published by European security agencies.
+FrodoKEM is being standardized by ISO, and it is mentioned in guidance published by several European security agencies ({{ TNO.Handbook }}, {{ ANSSI.PQCMigration }}, {{ BSI.PQCMigration }}). Some of these agencies recommend in particular the Security Levels 3 and 5.
 
 The FrodoKEM specification is available at {{FRODOKEM.SPEC}}. It includes variants using AES or SHAKE as underlying primitives. Implementations may differ in performance characteristics depending on available hardware support.
 
@@ -251,7 +277,7 @@ The FrodoKEM specification is available at {{FRODOKEM.SPEC}}. It includes varian
 
 NTRU is a structured lattice-based KEM.
 
-It is considered for standardization by ISO.
+It is being standardized by ISO.
 
 The NTRU specification is available at {{NTRU.SPEC}}.
 
@@ -269,9 +295,9 @@ The NTRU specification is available at {{NTRU.SPEC}}.
 
 Classic McEliece is a code-based KEM, based on the original McEliece cryptosystem from 1978.
 
-Each security level includes a 'f' variant that enables faster key generation, but is internally more complex.
+It is being standardized by ISO. Some European security agencies recommend it with specific parameter sets ({{ TNO.Handbook }}, {{ BSI.PQCMigration }}) while ANSSI doesn't recommend it anymore ({{ ANSSI.PQCViews }}).
 
-Classic McEliece has been the subject of long-term public cryptanalysis, and is considered in ongoing standardization efforts, such as ISO.
+Each security level includes a 'f' variant that enables faster key generation, but is internally more complex.
 
 The Classic McEliece specification is available at {{CLASSICMCELIECE.SPEC}}.
 
