@@ -41,7 +41,6 @@ author:
     email: wang.guilin@huawei.com
 
 informative:
- I-D.draft-ietf-pquip-pqt-hybrid-terminology-04:
  I-D.draft-ietf-pquip-hbs-state: HBS-STATE
  MLKEM.SPEC:
     title: "Module-Lattice-Based Digital Signature Standard"
@@ -221,12 +220,12 @@ This distinction is particularly relevant for implementers and developers to avo
 
 ML-KEM is a structured lattice-based KEM and the first post-quantum KEM standardized by NIST. It is derived from the CRYSTALS-Kyber submission to NIST PQC Standardization Project. The security of ML-KEM is based on the computational hardness of the Module Learning with Errors problem.
 
-NIST recommends Security Level 3 by default, and European security agencies recommend a minimum of the same Security Level.
+NIST recommends security level 3 by default, and European security agencies recommend a minimum of the same security level.
 
 The NIST specification of ML-KEM is available at {{MLKEM.SPEC}}.
 
 
-| Scheme | Public Key | Private Key | Ciphertext | Shared Secret | Claimed Security Level |
+| Scheme | Public Key | Private Key | Ciphertext | Shared Secret | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- | ----------- |
 | ML-KEM-512 | 800 | 1632 | 768 | 32 | 1 |
 | ML-KEM-768 | 1184 | 2400 | 1088 | 32 | 3 |
@@ -245,7 +244,7 @@ It has been selected for standardization by NIST.
 The HQC specification is available at {{HQC.SPEC}}.
 
 
-| Scheme | Public Key | Private Key | Ciphertext | Shared Secret | Claimed Security Level |
+| Scheme | Public Key | Private Key | Ciphertext | Shared Secret | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- | ----------- |
 | HQC-128 | 2249 | 2305 | 4433 | 64 | 1 |
 | HQC-192 | 4522 | 4586 | 8978 | 64 | 3 |
@@ -257,12 +256,12 @@ The HQC specification is available at {{HQC.SPEC}}.
 
 FrodoKEM is a lattice-based KEM whose security is based on the Learning with Errors (LWE) hardness assumption. Unlike the structured lattices of ML-KEM, FrodoKEM uses unstructed lattices.
 
-FrodoKEM is being standardized by ISO, and it is mentioned in guidance published by several European security agencies ({{ TNO.Handbook }}, {{ ANSSI.PQCMigration }}, {{ BSI.PQCMigration }}). Some of these agencies recommend in particular the Security Levels 3 and 5.
+FrodoKEM is being standardized by ISO, and it is mentioned in guidance published by several European security agencies ({{ TNO.Handbook }}, {{ ANSSI.PQCMigration }}, {{ BSI.PQCMigration }}). Some of these agencies recommend in particular the security levels 3 and 5.
 
 The FrodoKEM specification is available at {{FRODOKEM.SPEC}}. It includes variants using AES or SHAKE as underlying primitives. Implementations may differ in performance characteristics depending on available hardware support.
 
 
-| Scheme | Public Key | Private Key | Ciphertext | Shared Secret | Claimed Security Level |
+| Scheme | Public Key | Private Key | Ciphertext | Shared Secret | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- | ----------- |
 | FrodoKEM-640-AES  | 9616 | 19888 | 9720 | 16 | 1 |
 | FrodoKEM-640-SHAKE  | 9616 | 19888 | 9720 | 16 | 1 |
@@ -281,7 +280,7 @@ It is being standardized by ISO.
 
 The NTRU specification is available at {{NTRU.SPEC}}.
 
-| Scheme | Public Key | Private Key | Ciphertext | Shared Secret | Claimed Security Level |
+| Scheme | Public Key | Private Key | Ciphertext | Shared Secret | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- | ----------- |
 | ntruhps2048509 | 699 | 935 | 699 | 32 | 1 |
 | ntruhps2048677 | 930 | 1235 | 930 | 32 | 3 |
@@ -302,7 +301,7 @@ Each security level includes a 'f' variant that enables faster key generation, b
 The Classic McEliece specification is available at {{CLASSICMCELIECE.SPEC}}.
 
 
-| Scheme | Public Key | Private Key | Ciphertext | Shared Secret | Claimed Security Level |
+| Scheme | Public Key | Private Key | Ciphertext | Shared Secret | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- | ----------- |
 | Classic-McEliece-348864  | 261120 | 6492 | 96 | 32 | 1 |
 | Classic-McEliece-348864f  | 261120 | 6492 | 96 | 32 | 1 |
@@ -328,12 +327,12 @@ In the context of post-quantum cryptography, signature schemes are designed to r
 
 ML-DSA is a structured lattice-based signature scheme, now standardized by NIST. It is derived from the CRYSTALS-Dilithium submission to NIST PQC Standardization Project. The security of ML-DSA is based on the computational hardness of the Module Learning with Errors problem as well as the SelfTargetMSIS problem, a variant of the Module Short Integer Solution problem.
 
-European security agencies recommend at least Security Level 3.
+European security agencies recommend at least security level 3.
 
 The NIST specification of ML-DSA is available at {{MLDSA.SPEC}}.
 
 
-| Scheme | Public Key | Private Key | Signature | Claimed Security Level |
+| Scheme | Public Key | Private Key | Signature | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |
 | ML-DSA-44  | 1312 | 2560 | 2420 | 2 |
 | ML-DSA-65  | 1952 | 4032 | 3309 | 3 |
@@ -350,7 +349,7 @@ FN-DSA, formerly known as Falcon, is a lattice-based signature scheme that was s
 FN-DSA relies on floating-point arithmetic as part of its design, and the specification is available at {{FNDSA.SPEC}}.
 
 
-| Scheme | Public Key | Private Key | Signature | Claimed Security Level |
+| Scheme | Public Key | Private Key | Signature | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |
 | Falcon-512  | 897 | 1281 | 752 | 1 |
 | Falcon-1024  | 1793 | 2305 | 1462 | 5 |
@@ -367,7 +366,7 @@ Each security level offers two possible hash function families (SHA-2 or SHAKE),
 
 The NIST specification of SLH-DSA is available at {{SLHDSA.SPEC}}.
 
-| Scheme | Public Key | Private Key | Signature | Claimed Security Level |
+| Scheme | Public Key | Private Key | Signature | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |
 | SLH-DSA-SHA2-128s | 32 | 64 | 7856 | 1 |
 | SLH-DSA-SHAKE-128s | 32 | 64 | 7856 | 1 |
@@ -395,7 +394,7 @@ The NIST specification of LMS is available at {{LMS.SPEC}}.
 
 The signatures' sizes for the LMS_SHA256_M32_H{5, 10, 15, 20, 25} signature scheme depend on the choice of the underlying LMOTS scheme and in particular on the value of the Winternitz parameter W. Therefore, the signatures' sizes of LMS_SHA256_M32_H{5, 10, 15, 20, 25} are given in a 4-element array where values correspond to the value of W = 8, 4, 2, 1 in that order.
 
-| Scheme | Public Key | Private Key | Signature | Claimed Security Level |
+| Scheme | Public Key | Private Key | Signature | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |
 | LMOTS_SHA256_N32_W1  | 56 | 8504 | 8516 | x | 
 | LMOTS_SHA256_N32_W2  | 56 | 4280 | 4292 | x |
@@ -412,7 +411,7 @@ The signatures' sizes for the LMS_SHA256_M32_H{5, 10, 15, 20, 25} signature sche
 
 The signatures' sizes for the LMS_SHA256/192_M24_H{5, 10, 15, 20, 25} signature scheme depend on the choice of the underlying LMOTS scheme and in particular on the value of the Winternitz parameter W. Therefore, the signatures' sizes of LMS_SHA256/192_M24_H{5, 10, 15, 20, 25} are given in a 4-element array where values correspond to the value of W = 8, 4, 2, 1 in that order.
 
-| Scheme | Public Key | Private Key | Signature | Claimed Security Level |
+| Scheme | Public Key | Private Key | Signature | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |
 | LMOTS_SHA256_N24_W1  | 56 | 4824 | 4828 | x |
 | LMOTS_SHA256_N24_W2  | 56 | 2448 | 2452 | x |
@@ -429,7 +428,7 @@ The signatures' sizes for the LMS_SHA256/192_M24_H{5, 10, 15, 20, 25} signature 
 
 The signatures' sizes for the LMS_SHAKE_M32_H{5, 10, 15, 20, 25} signature scheme depend on the choice of the underlying LMOTS scheme and in particular on the value of the Winternitz parameter W. Therefore, the signatures' sizes of LMS_SHA256_M32_H{5, 10, 15, 20, 25} are given in a 4-element array where values correspond to the value of W = 8, 4, 2, 1 in that order.
 
-| Scheme | Public Key | Private Key | Signature | Claimed Security Level |
+| Scheme | Public Key | Private Key | Signature | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |
 | LMOTS_SHAKE_N32_W1  | 56 | 8504 | 8516 | x |
 | LMOTS_SHAKE_N32_W2  | 56 | 4280 | 4292 | x |
@@ -446,7 +445,7 @@ The signatures' sizes for the LMS_SHAKE_M32_H{5, 10, 15, 20, 25} signature schem
 
 The signatures' sizes for the LMS_SHAKE_M24_H{5, 10, 15, 20, 25} signature scheme depend on the choice of the underlying LMOTS scheme and in particular on the value of the Winternitz parameter W. Therefore, the signatures' sizes of LMS_SHA256/192_M24_H{5, 10, 15, 20, 25} are given in a 4-element array where values correspond to the value of W = 8, 4, 2, 1 in that order.
 
-| Scheme | Public Key | Private Key | Signature | Claimed Security Level |
+| Scheme | Public Key | Private Key | Signature | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |
 | LMOTS_SHAKE_N24_W1  | 56 | 4824 | 4828 | x |
 | LMOTS_SHAKE_N24_W2  | 56 | 2448 | 2452 | x |
@@ -468,7 +467,7 @@ It requires careful state management. {{-HBS-STATE}} provides guidance and secur
 
 The NIST specification of XMSS is available at {{XMSS.SPEC}}.
 
-| Scheme | Public Key | Private Key | Signature | Claimed Security Level |
+| Scheme | Public Key | Private Key | Signature | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |
 | XMSS-SHA2_10_256| 64 | 1793 | 2500 | 5 |
 | XMSS-SHA2_16_256 | 64 | 2093 | 2692 | 5 |
@@ -547,6 +546,18 @@ FrodoKEM is believed to have conservative security compared to schemes based on 
 (*) There is no known attack on the SUF-CMA security of those schemes, which are widely believed to be SUF-CMA secure. However, no formal proof exists yet.
 
 Hash-based signature schemes such as SLH-DSA, LMS, and XMSS are believed to offer more conservative security compared to lattice-based schemes like ML-DSA or FN-DSA.
+
+## Evolving Cryptanalysis
+
+Security analysis of post-quantum cryptographic schemes is an area of active research. The security levels indicated in this document reflect current claims based on existing knowledge. However, these may evolve as cryptanalysis improves.
+
+## Caveats for Implementers
+
+The transition to post-quantum algorithms introduces several technical aspects that differ from traditional asymmetric cryptography:
+
+- Side-Channel Analysis: some of the post-quantum schemes presented in this document could present new surfaces for side-channel attacks and the relative complexity of their design could make constant-time implementations more challenging.
+- State Management: stateful hash-based signatures (LMS and XMSS) require the signer to maintain a persistent and accurate record of used one-time keys. Failure to properly manage this state can lead to a catastrophic loss of security for the private key. See {{-HBS-STATE}} for more details.
+- Resource Constraints: the increased size of public keys, private keys, and signatures/ciphertexts may impact protocols with maximum transmission unit (MTU) limitations or devices with restricted memory and bandwidth.
 
 
 # IANA Considerations
