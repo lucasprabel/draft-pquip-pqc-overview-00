@@ -48,7 +48,7 @@ informative:
     date: August 2024
     author:
       org: "National Institute of Standards and Technology (NIST)"
-    target: https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.204.pdf
+    target: https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.203.pdf
  FRODOKEM.SPEC:
     title: "FrodoKEM: Learning With Errors Key Encapsulation"
     date: December 2024
@@ -92,8 +92,8 @@ informative:
       org:
     target: https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.205.pdf
  LMS.SPEC:
-    title: "Stateless Hash-Based Digital Signature Standard"
-    date: August 2024
+    title: "Recommendation for Stateful Hash-Based Signature Schemes"
+    date: October 2020
     author:
       org:
     target: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-208.pdf
@@ -229,8 +229,8 @@ The NIST specification of ML-KEM is available at {{MLKEM.SPEC}}.
 | Scheme | Public Key | Private Key | Ciphertext | Shared Secret | Claimed Security Level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- | ----------- |
 | ML-KEM-512 | 800 | 1632 | 768 | 32 | 1 |
-| ML-KEM-768 | 1184 |2400 | 1088 | 32 | 3 |
-| ML-KEM-1024 | 1568 |2168 | 1568 | 32 | 5 |
+| ML-KEM-768 | 1184 | 2400 | 1088 | 32 | 3 |
+| ML-KEM-1024 | 1568 | 2168 | 1568 | 32 | 5 |
 {: #tab-mlkem title="ML-KEM Parameter Sizes (in bytes)"}
 
 {{MLKEM.SPEC}} also allows the use of a 64-byte seed to represent the private key.
