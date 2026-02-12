@@ -258,7 +258,7 @@ The HQC specification is available at {{HQC.SPEC}}.
 
 ### FrodoKEM
 
-FrodoKEM is a lattice-based KEM whose security is based on the Learning with Errors (LWE) hardness assumption. Unlike the structured lattices of ML-KEM, FrodoKEM uses unstructed lattices.
+FrodoKEM is a lattice-based KEM whose security is based on the Learning with Errors (LWE) hardness assumption. Unlike the structured lattices of ML-KEM, FrodoKEM uses unstructured lattices.
 
 FrodoKEM is being standardized by ISO, and it is mentioned in guidance published by several European security agencies ({{ TNO.Handbook }}, {{ ANSSI.PQCMigration }}, {{ BSI.PQCMigration }}). Some of these agencies recommend in particular the security levels 3 and 5.
 
