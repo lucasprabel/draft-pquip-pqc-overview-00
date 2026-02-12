@@ -542,10 +542,10 @@ FrodoKEM is believed to have conservative security compared to schemes based on 
 {{tab-secu-sig}} gives a summary of the security properties of different signature algorithms.
 
 | Scheme | SDO | Hardness assumption | Security Model | Comments |
-| ----------- | ----------- | ----------- | ----------- |
-| ML-DSA | NIST | Module LWE, SelfTargetMSIS | SUF-CMA | xxx |
+| ----------- | ----------- | ----------- | ----------- |----------- |
+| ML-DSA | NIST | Module LWE, SelfTargetMSIS | SUF-CMA | FIPS 204 (Final). Primary lattice-based signature standard. Offers a balanced trade-off between speed and size. |
 | FN-DSA | NIST | SIS over NTRU lattices | EUF-CMA | Uses floating point arithmetic |
-| SLH-DSA | NIST | Second-preimage resistance | SUF-CMA (*) | xxx |
+| SLH-DSA | NIST | Second-preimage resistance | SUF-CMA (*) | FIPS 205 (Final). Conservative alternative to lattice schemes. Robust security based on minimal hash assumptions, but leads to larger signatures. |
 | LMS | NIST | Collision resistance | SUF-CMA (*) | Need state management |
 | XMSS | NIST | Collision resistance | SUF-CMA (*) | Need state management |
 {: #tab-secu-sig title=" Properties of signatures schemes"}
