@@ -529,12 +529,12 @@ The EU PQC Workstream also published its roadmap for the transition to post-quan
 {{tab-secu-kem}} gives a brief summary of the security properties of various KEM algorithms.
 
 | Scheme | SDO | Hardness assumption | Security Model | Comments |
-| ----------- | ----------- | ----------- | ----------- |
-| ML-KEM | NIST | Module LWE | IND-CCA2 | xxx |
-| FrodoKEM | ISO | Unstructured LWE | IND-CCA2 | xxx |
-| HQC | NIST | Decisional Quasi-Cyclic Syndrome Decoding Problem | IND-CCA2  | xxx |
-| Classic McEliece | ISO | Syndrome Decoding Problem, Goppa code recovery|IND-CCA2 | xxx |
-| NTRU | ISO | NTRU | IND-CCA2  | xxx |
+| ----------- | ----------- | ----------- | ----------- |----------- |
+| ML-KEM | NIST | Module LWE | IND-CCA2 | FIPS 203 (Final). Included in ISO/IEC 18033-2 Amd 2. De-facto standard for general-purpose protocol integration. |
+| FrodoKEM | ISO | Unstructured LWE | IND-CCA2 | ISO/IEC 18033-2 Amd 2. Based on unstructured LWE to avoid potential algebraic vulnerabilities. Recommended by BSI and ANSSI. |
+| HQC | NIST | Decisional Quasi-Cyclic Syndrome Decoding Problem | IND-CCA2  | NIST Round 4 Selection (March 2025). FIPS expected by 2027. Serves as a primary code-based backup to lattice-based schemes. |
+| Classic McEliece | ISO | Syndrome Decoding Problem, Goppa code recovery|IND-CCA2 | ISO/IEC 18033-2 Amd 2. Most conservative security profile with over 45 years of cryptanalysis history. |
+| NTRU | ISO | NTRU | IND-CCA2  | Standardization ongoing in ISO. A long-established lattice-based KEM with a solid track record and free from patent concerns. |
 {: #tab-secu-kem title=" Properties of KEM schemes"}
 
 FrodoKEM is believed to have conservative security compared to schemes based on structured lattices like ML-KEM or NTRU.
