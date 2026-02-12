@@ -233,7 +233,7 @@ The NIST specification of ML-KEM is available at {{MLKEM.SPEC}}.
 | ----------- | ----------- |  ----------- | ----------- | ----------- | ----------- |
 | ML-KEM-512 | 800 | 1632 | 768 | 32 | 1 |
 | ML-KEM-768 | 1184 | 2400 | 1088 | 32 | 3 |
-| ML-KEM-1024 | 1568 | 2168 | 1568 | 32 | 5 |
+| ML-KEM-1024 | 1568 | 3168 | 1568 | 32 | 5 |
 {: #tab-mlkem title="ML-KEM Parameter Sizes (in bytes)"}
 
 {{MLKEM.SPEC}} also allows the use of a 64-byte seed to represent the private key.
