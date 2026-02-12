@@ -39,6 +39,10 @@ author:
     fullname: Guilin Wang
     organization: Huawei
     email: wang.guilin@huawei.com
+ -  ins: S. Kanno
+    fullname: Satoru Kanno
+    organization: GMO Internet Group
+    email: kanno@gmo-connect.jp
 
 informative:
  I-D.draft-ietf-pquip-hbs-state: HBS-STATE
