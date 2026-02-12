@@ -45,8 +45,7 @@ author:
     email: kanno@gmo-connect.jp
 
 informative:
-  RFC8554:
-  
+ RFC8554:
  I-D.draft-ietf-pquip-hbs-state: HBS-STATE
  MLKEM.SPEC:
     title: "Module-Lattice-Based Digital Signature Standard"
