@@ -45,6 +45,8 @@ author:
     email: kanno@gmo-connect.jp
 
 informative:
+  RFC8554:
+  
  I-D.draft-ietf-pquip-hbs-state: HBS-STATE
  MLKEM.SPEC:
     title: "Module-Lattice-Based Digital Signature Standard"
@@ -390,7 +392,7 @@ The NIST specification of SLH-DSA is available at {{SLHDSA.SPEC}}.
 
 ### LMS
 
-Leighton-Micali Signatures (LMS) is a stateful hash-based signature scheme based on Merkle hash trees that uses Leighton-Micali One-Time Signatures (LM-OTS) as its component one-time signature scheme. When referring to specific parameter sets and algorithm identifiers in the following tables, the hyphen is omitted (LMOTS) in accordance with the nomenclature established in NIST SP 800-208 {{LMS.SPEC}} and RFC 8554.
+Leighton-Micali Signatures (LMS) is a stateful hash-based signature scheme based on Merkle hash trees that uses Leighton-Micali One-Time Signatures (LM-OTS) as its component one-time signature scheme. When referring to specific parameter sets and algorithm identifiers in the following tables, the hyphen is omitted (LMOTS) in accordance with the nomenclature established in NIST SP 800-208 {{LMS.SPEC}} and RFC 8554 {{RFC8554}} .
 
 It requires careful state management. {{-HBS-STATE}} provides guidance and security considerations on state management for stateful hash-based signature schemes.
 
