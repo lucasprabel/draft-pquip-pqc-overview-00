@@ -48,7 +48,7 @@ informative:
  RFC8554:
  I-D.draft-ietf-pquip-hbs-state: HBS-STATE
  MLKEM.SPEC:
-    title: "Module-Lattice-Based Digital Signature Standard"
+    title: "Module-Lattice-Based Key-Encapsulation Mechanism Standard"
     date: August 2024
     author:
       org: "National Institute of Standards and Technology (NIST)"
