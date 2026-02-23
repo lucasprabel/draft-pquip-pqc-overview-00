@@ -531,28 +531,24 @@ The EU PQC Workstream also published its roadmap for the transition to post-quan
 
 | Scheme | SDO | Hardness assumption | Security Model | Comments |
 | ----------- | ----------- | ----------- | ----------- |----------- |
-| ML-KEM | NIST | Module LWE | IND-CCA2 | FIPS 203 (Final). Included in ISO/IEC 18033-2 Amd 2. De-facto standard for general-purpose protocol integration. |
-| FrodoKEM | ISO | Unstructured LWE | IND-CCA2 | ISO/IEC 18033-2 Amd 2. Based on unstructured LWE to avoid potential algebraic vulnerabilities. Recommended by BSI and ANSSI. |
-| HQC | NIST | Decisional Quasi-Cyclic Syndrome Decoding Problem | IND-CCA2  | NIST Round 4 Selection (March 2025). FIPS expected by 2027. Serves as a primary code-based backup to lattice-based schemes. |
-| Classic McEliece | ISO | Syndrome Decoding Problem, Goppa code recovery|IND-CCA2 | ISO/IEC 18033-2 Amd 2. Most conservative security profile with over 45 years of cryptanalysis history. |
-| NTRU | ISO | NTRU | IND-CCA2  | Standardization ongoing in ISO. A long-established lattice-based KEM with a solid track record and free from patent concerns. |
-{: #tab-secu-kem title=" Properties of KEM schemes"}
-
-FrodoKEM is believed to have conservative security compared to schemes based on structured lattices like ML-KEM or NTRU.
+| ML-KEM | NIST | Module LWE | IND-CCA2 | |
+| FrodoKEM | ISO | Unstructured LWE | IND-CCA2 | |
+| HQC | NIST | Decisional Quasi-Cyclic Syndrome Decoding Problem | IND-CCA2  | |
+| Classic McEliece | ISO | Syndrome Decoding Problem, Goppa code recovery|IND-CCA2 | |
+| NTRU | ISO | NTRU | IND-CCA2  | |
+{: #tab-secu-kem title="Properties of KEM schemes"}
 
 {{tab-secu-sig}} gives a summary of the security properties of different signature algorithms.
 
 | Scheme | SDO | Hardness assumption | Security Model | Comments |
 | ----------- | ----------- | ----------- | ----------- |----------- |
-| ML-DSA | NIST | Module LWE, SelfTargetMSIS | SUF-CMA | FIPS 204 (Final). Primary lattice-based signature standard. Offers a balanced trade-off between speed and size. |
+| ML-DSA | NIST | Module LWE, SelfTargetMSIS | SUF-CMA | |
 | FN-DSA | NIST | SIS over NTRU lattices | EUF-CMA | Uses floating point arithmetic |
-| SLH-DSA | NIST | Second-preimage resistance | SUF-CMA (*) | FIPS 205 (Final). Conservative alternative to lattice schemes. Robust security based on minimal hash assumptions, but leads to larger signatures. |
+| SLH-DSA | NIST | Second-preimage resistance | SUF-CMA (*) | |
 | LMS | NIST | Collision resistance | SUF-CMA (*) | Need state management |
 | XMSS | NIST | Collision resistance | SUF-CMA (*) | Need state management |
 {: #tab-secu-sig title=" Properties of signatures schemes"}
 (*) There is no known attack on the SUF-CMA security of those schemes, which are widely believed to be SUF-CMA secure. However, no formal proof exists yet.
-
-Hash-based signature schemes such as SLH-DSA, LMS, and XMSS are believed to offer more conservative security compared to lattice-based schemes like ML-DSA or FN-DSA.
 
 ## Evolving Cryptanalysis
 
