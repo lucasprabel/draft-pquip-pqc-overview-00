@@ -433,7 +433,7 @@ The signatures' sizes for the LMS_SHA256/192_M24_H{5, 10, 15, 20, 25} signature 
 
 #### LMS with SHAKE256/256
 
-The signatures' sizes for the LMS_SHAKE_M32_H{5, 10, 15, 20, 25} signature scheme depend on the choice of the underlying LMOTS scheme and in particular on the value of the Winternitz parameter W. Therefore, the signatures' sizes of LMS_SHA256_M32_H{5, 10, 15, 20, 25} are given in a 4-element array where values correspond to the value of W = 8, 4, 2, 1 in that order.
+The signatures' sizes for the LMS_SHAKE_M32_H{5, 10, 15, 20, 25} signature scheme depend on the choice of the underlying LMOTS scheme and in particular on the value of the Winternitz parameter W. Therefore, the signatures' sizes of LMS_SHAKE_M32_H{5, 10, 15, 20, 25} are given in a 4-element array where values correspond to the value of W = 8, 4, 2, 1 in that order.
 
 | Scheme | Public Key | Private Key | Signature | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |
