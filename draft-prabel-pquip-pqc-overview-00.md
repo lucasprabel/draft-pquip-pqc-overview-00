@@ -141,7 +141,7 @@ informative:
     title: "Cryptographic Mechanisms: Recommendations and Key Lengths"
     date: January 2025
     author:
-      org: "ANSSI"
+      org: "BSI"
     target: https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TG02102/BSI-TR-02102-1.pdf?__blob=publicationFile&v=10
 
 
