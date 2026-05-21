@@ -569,4 +569,4 @@ This document has no IANA action.
 
 # Acknowledgments
 
-We thank Sun Shuzhou and Zeng Guang for their valuable comments and recommendations on this document.
+We thank Sun Shuzhou, Zeng Guang and Jó Bitsch for their valuable comments and recommendations on this document.
