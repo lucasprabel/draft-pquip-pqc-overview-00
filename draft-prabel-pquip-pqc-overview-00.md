@@ -46,6 +46,7 @@ author:
 
 informative:
  RFC8554:
+ RFC9858:
  I-D.draft-ietf-pquip-hbs-state: HBS-STATE
  MLKEM.SPEC:
     title: "Module-Lattice-Based Key-Encapsulation Mechanism Standard"
@@ -168,8 +169,6 @@ The document covers both KEM schemes (ML-KEM, HQC, FrodoKEM, NTRU, Classic McEli
 
 
 # Conventions and Definitions
-
-{::boilerplate bcp14-tagged}
 
 This section recalls terminology relevant to post-quantum cryptographic algorithms and defines additional terms used throughout this document.
 
@@ -397,7 +396,11 @@ It requires careful state management. {{-HBS-STATE}} provides guidance and secur
 
 The NIST specification of LMS is available at {{LMS.SPEC}}.
 
+The parameter sets that use the SHA-256/192, SHAKE256/256 and SHAKE256/192 hash functions are defined in {{RFC9858}}, which also registers their IANA code points.
+
 In the parameter tables below, the LM-OTS rows do not carry an independent claimed security level: LM-OTS is a one-time component whose security is realized within the parent LMS tree. These entries are therefore marked "-" in the "Claimed security level" column.
+
+The signature sizes given for the LMS parameter sets are those of an HSS signature with L=1, which prepends the four-byte u32str(Nspk) field defined in Section 6.2 of {{RFC8554}}. An LMS signature on its own, as defined in Section 5.4 of {{RFC8554}}, is four bytes shorter. The same convention is used in Table 3 of {{RFC9858}}.
 
 #### LMS with SHA-256
 
@@ -418,7 +421,7 @@ The signatures' sizes for the LMS_SHA256_M32_H{5, 10, 15, 20, 25} signature sche
 
 #### LMS with SHA-256/192
 
-The signatures' sizes for the LMS_SHA256/192_M24_H{5, 10, 15, 20, 25} signature scheme depend on the choice of the underlying LMOTS scheme and in particular on the value of the Winternitz parameter W. Therefore, the signatures' sizes of LMS_SHA256/192_M24_H{5, 10, 15, 20, 25} are given in a 4-element array where values correspond to the value of W = 8, 4, 2, 1 in that order.
+The signatures' sizes for the LMS_SHA256_M24_H{5, 10, 15, 20, 25} signature scheme depend on the choice of the underlying LMOTS scheme and in particular on the value of the Winternitz parameter W. Therefore, the signatures' sizes of LMS_SHA256_M24_H{5, 10, 15, 20, 25} are given in a 4-element array where values correspond to the value of W = 8, 4, 2, 1 in that order.
 
 | Scheme | Public Key | Private Key | Signature | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |
@@ -431,7 +434,7 @@ The signatures' sizes for the LMS_SHA256/192_M24_H{5, 10, 15, 20, 25} signature 
 | LMS_SHA256_M24_H15 | 48 | 1835012 | [1024, 1624, 2824, 5200] | 3 |
 | LMS_SHA256_M24_H20 | 48 | 58720260 | [1144, 1744, 2944, 5320] | 3 |
 | LMS_SHA256_M24_H25 | 48 | 1879048196 | [1264, 1864, 3064, 5440] | 3 |
-{: #tab-lms-sha256/192 title="LMS with SHA256/192 Parameter Sizes (in bytes)"}
+{: #tab-lms-sha256-192 title="LMS with SHA256/192 Parameter Sizes (in bytes)"}
 
 #### LMS with SHAKE256/256
 
@@ -448,7 +451,7 @@ The signatures' sizes for the LMS_SHAKE_M32_H{5, 10, 15, 20, 25} signature schem
 | LMS_SHAKE_M32_H15 | 56 | 1835012 | [1616, 2672, 4784, 9008] | 5 |
 | LMS_SHAKE_M32_H20 | 56 | 58720260 | [1776, 2832, 4944, 9168] | 5 |
 | LMS_SHAKE_M32_H25 | 56 | 1879048196 | [1936, 2992, 5104, 9328] | 5 |
-{: #tab-lms-shake256/256 title="LMS with SHAKE256/256 Parameter Sizes (in bytes)"}
+{: #tab-lms-shake256-256 title="LMS with SHAKE256/256 Parameter Sizes (in bytes)"}
 
 #### LMS with SHAKE256/192
 
@@ -465,7 +468,7 @@ The signatures' sizes for the LMS_SHAKE_M24_H{5, 10, 15, 20, 25} signature schem
 | LMS_SHAKE_M24_H15 | 48 | 1835012 | [1024, 1624, 2824, 5200] | 3 |
 | LMS_SHAKE_M24_H20 | 48 | 58720260 | [1144, 1744, 2944, 5320] | 3 |
 | LMS_SHAKE_M24_H25 | 48 | 1879048196 | [1264, 1864, 3064, 5440] | 3 |
-{: #tab-lms-shake256/192 title="LMS with SHAKE256/192 Parameter Sizes (in bytes)"}
+{: #tab-lms-shake256-192 title="LMS with SHAKE256/192 Parameter Sizes (in bytes)"}
 
 
 ### XMSS / XMSS^MT
