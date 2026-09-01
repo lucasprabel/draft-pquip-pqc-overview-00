@@ -46,6 +46,7 @@ author:
 
 informative:
  RFC8554:
+ RFC9858:
  I-D.draft-ietf-pquip-hbs-state: HBS-STATE
  MLKEM.SPEC:
     title: "Module-Lattice-Based Key-Encapsulation Mechanism Standard"
@@ -169,8 +170,6 @@ The document covers both KEM schemes (ML-KEM, HQC, FrodoKEM, NTRU, Classic McEli
 
 # Conventions and Definitions
 
-{::boilerplate bcp14-tagged}
-
 This section recalls terminology relevant to post-quantum cryptographic algorithms and defines additional terms used throughout this document.
 
 *CRQC*: A Cryptographically Relevant Quantum Computer is a quantum 
@@ -268,12 +267,12 @@ The FrodoKEM specification is available at {{FRODOKEM.SPEC}}. It includes varian
 
 | Scheme | Public Key | Private Key | Ciphertext | Shared Secret | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- | ----------- |
-| FrodoKEM-640-AES  | 9616 | 19888 | 9720 | 16 | 1 |
-| FrodoKEM-640-SHAKE  | 9616 | 19888 | 9720 | 16 | 1 |
-| FrodoKEM-976-AES  | 15632 | 31296 | 15744 | 24 | 3 |
-| FrodoKEM-976-SHAKE  | 15632 | 31296 | 15744 | 24 | 3 |
-| FrodoKEM-1344-AES  | 21520 | 43088 | 21632 | 32 | 5 |
-| FrodoKEM-1344-SHAKE  | 21520 | 43088 | 21632 | 32 | 5 |
+| FrodoKEM-640-AES  | 9616 | 19888 | 9752 | 16 | 1 |
+| FrodoKEM-640-SHAKE  | 9616 | 19888 | 9752 | 16 | 1 |
+| FrodoKEM-976-AES  | 15632 | 31296 | 15792 | 24 | 3 |
+| FrodoKEM-976-SHAKE  | 15632 | 31296 | 15792 | 24 | 3 |
+| FrodoKEM-1344-AES  | 21520 | 43088 | 21696 | 32 | 5 |
+| FrodoKEM-1344-SHAKE  | 21520 | 43088 | 21696 | 32 | 5 |
 {: #tab-frodokem title="FrodoKEM Parameter Sizes (in bytes)"}
 
 
@@ -383,8 +382,8 @@ The NIST specification of SLH-DSA is available at {{SLHDSA.SPEC}}.
 | SLH-DSA-SHAKE-192s | 48 | 96 | 16224 | 3 |
 | SLH-DSA-SHA2-192f | 48 | 96 | 35664 | 3 |
 | SLH-DSA-SHAKE-192f | 48 | 96 | 35664 | 3 |
-| SLH-DSA-SHA2-256s | 64 | 128 | 29762 | 5 |
-| SLH-DSA-SHAKE-256s | 64 | 128| 29762 | 5 |
+| SLH-DSA-SHA2-256s | 64 | 128 | 29792 | 5 |
+| SLH-DSA-SHAKE-256s | 64 | 128| 29792 | 5 |
 | SLH-DSA-SHA2-256f | 64 | 128 | 49856 | 5 |
 | SLH-DSA-SHAKE-256f | 64 | 128 | 49856 | 5 |
 {: #tab-slhdsa title="SLH-DSA Parameter Sizes (in bytes)"}
@@ -397,16 +396,22 @@ It requires careful state management. {{-HBS-STATE}} provides guidance and secur
 
 The NIST specification of LMS is available at {{LMS.SPEC}}.
 
+The parameter sets that use the SHA-256/192, SHAKE256/256 and SHAKE256/192 hash functions are defined in {{RFC9858}}, which also registers their IANA code points.
+
+In the parameter tables below, the LM-OTS rows do not carry an independent claimed security level: LM-OTS is a one-time component whose security is realized within the parent LMS tree. These entries are therefore marked "-" in the "Claimed security level" column.
+
+The signature sizes given for the LMS parameter sets are those of an HSS signature with L=1, which prepends the four-byte u32str(Nspk) field defined in Section 6.2 of {{RFC8554}}. An LMS signature on its own, as defined in Section 5.4 of {{RFC8554}}, is four bytes shorter. The same convention is used in Table 3 of {{RFC9858}}.
+
 #### LMS with SHA-256
 
 The signatures' sizes for the LMS_SHA256_M32_H{5, 10, 15, 20, 25} signature scheme depend on the choice of the underlying LMOTS scheme and in particular on the value of the Winternitz parameter W. Therefore, the signatures' sizes of LMS_SHA256_M32_H{5, 10, 15, 20, 25} are given in a 4-element array where values correspond to the value of W = 8, 4, 2, 1 in that order.
 
 | Scheme | Public Key | Private Key | Signature | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |
-| LMOTS_SHA256_N32_W1  | 56 | 8504 | 8516 | x | 
-| LMOTS_SHA256_N32_W2  | 56 | 4280 | 4292 | x |
-| LMOTS_SHA256_N32_W4  | 56 | 2168 | 2180 | x |
-| LMOTS_SHA256_N32_W8  | 56 | 1112 | 1124 | x |
+| LMOTS_SHA256_N32_W1  | 56 | 8504 | 8516 | - | 
+| LMOTS_SHA256_N32_W2  | 56 | 4280 | 4292 | - |
+| LMOTS_SHA256_N32_W4  | 56 | 2168 | 2180 | - |
+| LMOTS_SHA256_N32_W8  | 56 | 1112 | 1124 | - |
 | LMS_SHA256_M32_H5 | 56 | 1796 | [1296, 2352, 4464, 8688] | 5 |
 | LMS_SHA256_M32_H10 | 56 | 57348 | [1456, 2512, 4624, 8848] | 5 |
 | LMS_SHA256_M32_H15 | 56 | 1835012 | [1616, 2672, 4784, 9008] | 5 |
@@ -416,20 +421,20 @@ The signatures' sizes for the LMS_SHA256_M32_H{5, 10, 15, 20, 25} signature sche
 
 #### LMS with SHA-256/192
 
-The signatures' sizes for the LMS_SHA256/192_M24_H{5, 10, 15, 20, 25} signature scheme depend on the choice of the underlying LMOTS scheme and in particular on the value of the Winternitz parameter W. Therefore, the signatures' sizes of LMS_SHA256/192_M24_H{5, 10, 15, 20, 25} are given in a 4-element array where values correspond to the value of W = 8, 4, 2, 1 in that order.
+The signatures' sizes for the LMS_SHA256_M24_H{5, 10, 15, 20, 25} signature scheme depend on the choice of the underlying LMOTS scheme and in particular on the value of the Winternitz parameter W. Therefore, the signatures' sizes of LMS_SHA256_M24_H{5, 10, 15, 20, 25} are given in a 4-element array where values correspond to the value of W = 8, 4, 2, 1 in that order.
 
 | Scheme | Public Key | Private Key | Signature | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |
-| LMOTS_SHA256_N24_W1  | 48 | 4824 | 4828 | x |
-| LMOTS_SHA256_N24_W2  | 48 | 2448 | 2452 | x |
-| LMOTS_SHA256_N24_W4  | 48 | 1248 | 1251 | x |
-| LMOTS_SHA256_N24_W8  | 48 | 648 | 652 | x |
+| LMOTS_SHA256_N24_W1  | 48 | 4824 | 4828 | - |
+| LMOTS_SHA256_N24_W2  | 48 | 2448 | 2452 | - |
+| LMOTS_SHA256_N24_W4  | 48 | 1248 | 1252 | - |
+| LMOTS_SHA256_N24_W8  | 48 | 648 | 652 | - |
 | LMS_SHA256_M24_H5  | 48 | 1796 | [784, 1384, 2584, 4960] | 3 |
 | LMS_SHA256_M24_H10 | 48 | 57348 | [904, 1504, 2704, 5080] | 3 |
 | LMS_SHA256_M24_H15 | 48 | 1835012 | [1024, 1624, 2824, 5200] | 3 |
 | LMS_SHA256_M24_H20 | 48 | 58720260 | [1144, 1744, 2944, 5320] | 3 |
 | LMS_SHA256_M24_H25 | 48 | 1879048196 | [1264, 1864, 3064, 5440] | 3 |
-{: #tab-lms-sha256/192 title="LMS with SHA256/192 Parameter Sizes (in bytes)"}
+{: #tab-lms-sha256-192 title="LMS with SHA256/192 Parameter Sizes (in bytes)"}
 
 #### LMS with SHAKE256/256
 
@@ -437,16 +442,16 @@ The signatures' sizes for the LMS_SHAKE_M32_H{5, 10, 15, 20, 25} signature schem
 
 | Scheme | Public Key | Private Key | Signature | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |
-| LMOTS_SHAKE_N32_W1  | 56 | 8504 | 8516 | x |
-| LMOTS_SHAKE_N32_W2  | 56 | 4280 | 4292 | x |
-| LMOTS_SHAKE_N32_W4  | 56 | 2168 | 2180 | x |
-| LMOTS_SHAKE_N32_W8  | 56 | 1112 | 1124 | x |
+| LMOTS_SHAKE_N32_W1  | 56 | 8504 | 8516 | - |
+| LMOTS_SHAKE_N32_W2  | 56 | 4280 | 4292 | - |
+| LMOTS_SHAKE_N32_W4  | 56 | 2168 | 2180 | - |
+| LMOTS_SHAKE_N32_W8  | 56 | 1112 | 1124 | - |
 | LMS_SHAKE_M32_H5  | 56 | 1796 | [1296, 2352, 4464, 8688] | 5 |
 | LMS_SHAKE_M32_H10 | 56 | 57348 | [1456, 2512, 4624, 8848] | 5 |
 | LMS_SHAKE_M32_H15 | 56 | 1835012 | [1616, 2672, 4784, 9008] | 5 |
 | LMS_SHAKE_M32_H20 | 56 | 58720260 | [1776, 2832, 4944, 9168] | 5 |
 | LMS_SHAKE_M32_H25 | 56 | 1879048196 | [1936, 2992, 5104, 9328] | 5 |
-{: #tab-lms-shake256/256 title="LMS with SHAKE256/256 Parameter Sizes (in bytes)"}
+{: #tab-lms-shake256-256 title="LMS with SHAKE256/256 Parameter Sizes (in bytes)"}
 
 #### LMS with SHAKE256/192
 
@@ -454,16 +459,16 @@ The signatures' sizes for the LMS_SHAKE_M24_H{5, 10, 15, 20, 25} signature schem
 
 | Scheme | Public Key | Private Key | Signature | Claimed security level |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |
-| LMOTS_SHAKE_N24_W1  | 48 | 4824 | 4828 | x |
-| LMOTS_SHAKE_N24_W2  | 48 | 2448 | 2452 | x |
-| LMOTS_SHAKE_N24_W4  | 48 | 1248 | 1252 | x |
-| LMOTS_SHAKE_N24_W8  | 48 | 648 | 652 | x |
+| LMOTS_SHAKE_N24_W1  | 48 | 4824 | 4828 | - |
+| LMOTS_SHAKE_N24_W2  | 48 | 2448 | 2452 | - |
+| LMOTS_SHAKE_N24_W4  | 48 | 1248 | 1252 | - |
+| LMOTS_SHAKE_N24_W8  | 48 | 648 | 652 | - |
 | LMS_SHAKE_M24_H5  | 48 | 1796 | [784, 1384, 2584, 4960] | 3 |
 | LMS_SHAKE_M24_H10 | 48 | 57348 | [904, 1504, 2704, 5080] | 3 |
 | LMS_SHAKE_M24_H15 | 48 | 1835012 | [1024, 1624, 2824, 5200] | 3 |
 | LMS_SHAKE_M24_H20 | 48 | 58720260 | [1144, 1744, 2944, 5320] | 3 |
 | LMS_SHAKE_M24_H25 | 48 | 1879048196 | [1264, 1864, 3064, 5440] | 3 |
-{: #tab-lms-shake256/192 title="LMS with SHAKE256/192 Parameter Sizes (in bytes)"}
+{: #tab-lms-shake256-192 title="LMS with SHAKE256/192 Parameter Sizes (in bytes)"}
 
 
 ### XMSS / XMSS^MT
@@ -544,9 +549,9 @@ The EU PQC Workstream also published its roadmap for the transition to post-quan
 | ----------- | ----------- | ----------- | ----------- |----------- |
 | ML-DSA | NIST | Module LWE, SelfTargetMSIS | SUF-CMA | |
 | FN-DSA | NIST | SIS over NTRU lattices | EUF-CMA | Uses floating point arithmetic |
-| SLH-DSA | NIST | Second-preimage resistance | SUF-CMA (*) | |
-| LMS | NIST | Collision resistance | SUF-CMA (*) | Need state management |
-| XMSS | NIST | Collision resistance | SUF-CMA (*) | Need state management |
+| SLH-DSA | NIST | Preimage resistance and related hash-function properties | SUF-CMA (*) | |
+| LMS | NIST | Second-preimage resistance | SUF-CMA (*) | Need state management |
+| XMSS | NIST | Second-preimage resistance | SUF-CMA (*) | Need state management |
 {: #tab-secu-sig title=" Properties of signatures schemes"}
 (*) There is no known attack on the SUF-CMA security of those schemes, which are widely believed to be SUF-CMA secure. However, no formal proof exists yet.
 
