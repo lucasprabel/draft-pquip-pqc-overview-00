@@ -402,7 +402,7 @@ In the parameter tables below, the LM-OTS rows do not carry an independent claim
 
 The signature sizes given for the LMS parameter sets are those of an HSS signature with L=1, which prepends the four-byte u32str(Nspk) field defined in Section 6.2 of {{RFC8554}}. An LMS signature on its own, as defined in Section 5.4 of {{RFC8554}}, is four bytes shorter. The same convention is used in Table 3 of {{RFC9858}}.
 
-The private key sizes given for the LMS parameter sets correspond to storing one record of LMS public key size per leaf, that is 4 + 2^h * (24 + m) bytes. {{RFC8554}} leaves the private key format to the implementation; Section 5.2 also allows a minimal state, generated pseudorandomly from a seed of at least m bytes together with the identifier I and the leaf index q, which is much smaller.
+The private key sizes given for the LMS parameter sets follow the accounting used in these tables, 4 + 2^h * (24 + m) bytes, where 24 + m is the size of an encoded LMS public key. {{RFC8554}} does not define an LMS private key format: Section 5.2 states that it is an internal matter to the implementation, and permits generating the key pseudorandomly from a uniformly random secret of at least m bytes, which lets an implementation avoid storing the full array.
 
 #### LMS with SHA-256
 
