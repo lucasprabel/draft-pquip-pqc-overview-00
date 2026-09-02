@@ -402,6 +402,8 @@ In the parameter tables below, the LM-OTS rows do not carry an independent claim
 
 The signature sizes given for the LMS parameter sets are those of an HSS signature with L=1, which prepends the four-byte u32str(Nspk) field defined in Section 6.2 of {{RFC8554}}. An LMS signature on its own, as defined in Section 5.4 of {{RFC8554}}, is four bytes shorter. The same convention is used in Table 3 of {{RFC9858}}.
 
+The private key sizes given for the LMS parameter sets follow the accounting used in these tables, 4 + 2^h * (24 + m) bytes, where 24 + m is the size of an encoded LMS public key. {{RFC8554}} does not define an LMS private key format: Section 5.2 states that it is an internal matter to the implementation, and permits generating the key pseudorandomly from a uniformly random secret of at least m bytes, which lets an implementation avoid storing the full array.
+
 #### LMS with SHA-256
 
 The signatures' sizes for the LMS_SHA256_M32_H{5, 10, 15, 20, 25} signature scheme depend on the choice of the underlying LMOTS scheme and in particular on the value of the Winternitz parameter W. Therefore, the signatures' sizes of LMS_SHA256_M32_H{5, 10, 15, 20, 25} are given in a 4-element array where values correspond to the value of W = 8, 4, 2, 1 in that order.
@@ -429,11 +431,11 @@ The signatures' sizes for the LMS_SHA256_M24_H{5, 10, 15, 20, 25} signature sche
 | LMOTS_SHA256_N24_W2  | 48 | 2448 | 2452 | - |
 | LMOTS_SHA256_N24_W4  | 48 | 1248 | 1252 | - |
 | LMOTS_SHA256_N24_W8  | 48 | 648 | 652 | - |
-| LMS_SHA256_M24_H5  | 48 | 1796 | [784, 1384, 2584, 4960] | 3 |
-| LMS_SHA256_M24_H10 | 48 | 57348 | [904, 1504, 2704, 5080] | 3 |
-| LMS_SHA256_M24_H15 | 48 | 1835012 | [1024, 1624, 2824, 5200] | 3 |
-| LMS_SHA256_M24_H20 | 48 | 58720260 | [1144, 1744, 2944, 5320] | 3 |
-| LMS_SHA256_M24_H25 | 48 | 1879048196 | [1264, 1864, 3064, 5440] | 3 |
+| LMS_SHA256_M24_H5  | 48 | 1540 | [784, 1384, 2584, 4960] | 3 |
+| LMS_SHA256_M24_H10 | 48 | 49156 | [904, 1504, 2704, 5080] | 3 |
+| LMS_SHA256_M24_H15 | 48 | 1572868 | [1024, 1624, 2824, 5200] | 3 |
+| LMS_SHA256_M24_H20 | 48 | 50331652 | [1144, 1744, 2944, 5320] | 3 |
+| LMS_SHA256_M24_H25 | 48 | 1610612740 | [1264, 1864, 3064, 5440] | 3 |
 {: #tab-lms-sha256-192 title="LMS with SHA256/192 Parameter Sizes (in bytes)"}
 
 #### LMS with SHAKE256/256
@@ -463,11 +465,11 @@ The signatures' sizes for the LMS_SHAKE_M24_H{5, 10, 15, 20, 25} signature schem
 | LMOTS_SHAKE_N24_W2  | 48 | 2448 | 2452 | - |
 | LMOTS_SHAKE_N24_W4  | 48 | 1248 | 1252 | - |
 | LMOTS_SHAKE_N24_W8  | 48 | 648 | 652 | - |
-| LMS_SHAKE_M24_H5  | 48 | 1796 | [784, 1384, 2584, 4960] | 3 |
-| LMS_SHAKE_M24_H10 | 48 | 57348 | [904, 1504, 2704, 5080] | 3 |
-| LMS_SHAKE_M24_H15 | 48 | 1835012 | [1024, 1624, 2824, 5200] | 3 |
-| LMS_SHAKE_M24_H20 | 48 | 58720260 | [1144, 1744, 2944, 5320] | 3 |
-| LMS_SHAKE_M24_H25 | 48 | 1879048196 | [1264, 1864, 3064, 5440] | 3 |
+| LMS_SHAKE_M24_H5  | 48 | 1540 | [784, 1384, 2584, 4960] | 3 |
+| LMS_SHAKE_M24_H10 | 48 | 49156 | [904, 1504, 2704, 5080] | 3 |
+| LMS_SHAKE_M24_H15 | 48 | 1572868 | [1024, 1624, 2824, 5200] | 3 |
+| LMS_SHAKE_M24_H20 | 48 | 50331652 | [1144, 1744, 2944, 5320] | 3 |
+| LMS_SHAKE_M24_H25 | 48 | 1610612740 | [1264, 1864, 3064, 5440] | 3 |
 {: #tab-lms-shake256-192 title="LMS with SHAKE256/192 Parameter Sizes (in bytes)"}
 
 
